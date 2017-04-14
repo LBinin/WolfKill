@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>狼人杀 - 软件工程二班最强小组</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="background"></div>
+
+    <!-- 主页 -->
+    <div class="home">
+        <div class="logo"></div>
+        <div class="home-btn-group">
+            <div class="join-room home-btn">加入房间</div>
+            <div class="creat-room home-btn">创建房间</div>
+        </div>
+    </div>
+
+    <!-- 加入房间页面 -->
+    <div class="join-page">
+        <input type="text" class="join-input">
+        <div class="join-btn-group">
+            <div class="join-btn return">返回</div>
+            <div class="join-btn sure">加入</div>
+        </div>
+    </div>
+
+    <!-- 创建房间页面 -->
+    <div class="creat-page">
+        <!-- 玩家总人数 -->
+        <div class="total-person">
+            <div class="title">玩家总人数</div>
+            <div class="controller clearFix">
+                <div class="curr-person">9</div>
+                <span class="decrease creat-btn">-</span>
+                <span class="increase creat-btn">+</span>
+            </div>
+        </div>
+        <!-- 选择神民 -->
+        <div class="choose-god">
+            <div class="title">选择神明：<span>3</span></div>
+            <div class="god-list">
+                <div class="god-item chosed">
+                    <img src="./images/prophet.png" alt="预言家">
+                    <span class="god-name">预言家</span>
+                </div>
+                <div class="god-item chosed">
+                    <img src="./images/witch.png" alt="女巫">
+                    <span class="god-name">女巫</span>
+                </div>
+                <div class="god-item chosed">
+                    <img src="./images/hunter.png" alt="猎人">
+                    <span class="god-name">猎人</span>
+                </div>
+                <div class="god-item">
+                    <img src="./images/shield.png" alt="守卫">
+                    <span class="god-name">守卫</span>
+                </div>
+            </div>
+        </div>
+        <!-- 狼人和村民 -->
+        <div class="wolf-villager">
+            <div class="wolf-num">
+                <span class="title">狼人</span>
+                <div class="curr-num">
+                    <div class="decrease wolf-btn">-</div>
+                    <span>3</span>
+                    <div class="increase wolf-btn">+</div>
+                </div>
+            </div>
+            <span class="line"></span>
+            <div class="villager-num">
+                <span class="title">村民</span>
+                <div class="curr-num">3</div>
+            </div>
+        </div>
+
+        <!-- 创建房间按钮 -->
+        <div class="return creat-btn">返回首页</div>
+        <div class="sure creat-btn">创建房间</div>
+    </div>
+
+    <!-- 座位页面 -->
+    <div class="sitting">
+        <div class="sit-background"></div>
+        <div class="table"></div>
+    </div>
+
+    <!-- 身份信息 -->
+    <div class="identity">
+        <div class="show-card">
+            <img class="card-pic" src="./images/prophet.jpg" alt="">
+            <div class="title"><span>3</span>号玩家你的身份是：</div>
+            <div class="id-name">预言家</div>
+            <div class="ikonw-btn">我知道了</div>
+        </div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+    
+    <!-- 等待信息 -->
+    <div class="waiting-info">搜索房间中...</div>
+
+    <!-- 遮罩层 -->
+    <div class="mask">
+
+    </div>
+
+    <script src="http://www.jq22.com/jquery/jquery-2.1.1.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/home.js"></script>
+    <script src="./js/join_room.js"></script>
+    <script src="./js/sitting_room.js"></script>
+    <script src="./js/creat_room.js"></script>
+</body>
+</html>
