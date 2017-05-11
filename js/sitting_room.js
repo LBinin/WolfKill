@@ -18,6 +18,13 @@ var seatSize = screenWidth * 0.15
 var seatRadius = seatSize / 2
 var tableRadius = screenWidth / 2 - seatRadius
 
+// 坐下判断
+var chosed = false
+var currSeatNum = ''
+
+// 判断是否房主
+var isHost = true
+
 function setSeat(seatNum) {
     for (var i = 0; i < seatNum; i++) {
         var curr_seat = seat.clone()
@@ -29,20 +36,21 @@ function setSeat(seatNum) {
             transition: 'opacity 0.5s '+ 0.2 * i + 's, color 0.3s, background 0.3s',
         })
     }
+
     $('.seat').css({
         height: seatSize,
         width: seatSize
-    })
 
-    $('.seat').each(function(e) {
+    }).each(function(e) {
         $(this).html(e + 1)
-    })
-    $('.seat').on('touchstart', function(){
-        if (!chosed || currNum == $(this).text()) {
+
+    }).on('touchstart', function(){
+        // 展示身份
+        if (!chosed || currSeatNum == $(this).text()) {
             $(this).addClass('sit-down')
             $('.identity').fadeIn()
             chosed = true
-            currNum = $(this).text()
+            currSeatNum = $(this).text()
         }else {
             alert("你已经选过位置了哦，点击自己的号码查看身份")
             return
@@ -50,11 +58,7 @@ function setSeat(seatNum) {
     })
 }
 
-
-var chosed = false
-var currNum = ''
-
-
+// 我知道了
 $('.ikonw-btn').on('touchstart', function(){
     $('.identity .show-card').addClass('ikonwed')
     setTimeout(function() {
@@ -62,3 +66,15 @@ $('.ikonw-btn').on('touchstart', function(){
         $('.identity').fadeOut()
     }, 1000);
 })
+
+// 开始游戏
+if (isHost) {
+    $('.game-start-btn').on('touchstart', function(){
+        showMaskAndSetWords('游戏开始!', false)
+        setTimeout(function() {
+            startGame()
+        }, 4000);
+    })
+}else {
+    $('.game-start-btn').hide();
+}

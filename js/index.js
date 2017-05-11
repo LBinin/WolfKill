@@ -29,3 +29,21 @@ function getTotalNum() {
 function setTotalNum(num) {
     $('.creat-page .curr-person').text(num)
 }
+
+function showMaskAndSetWords(words, hideOption) {
+    $('.mask .mask-words').text(words).parent().fadeIn()
+    setTimeout(function() {
+        $('.mask').addClass('active')
+    }, 100);
+    setTimeout(function() {
+        $('.mask').addClass('inactive').removeClass('active')
+        setTimeout(function() {
+            if (hideOption) {
+                $('.mask').fadeOut()
+            }
+            setTimeout(function() {
+                $('.mask').removeClass('inactive')
+            }, 500);
+        }, 300)
+    }, 2000)
+}

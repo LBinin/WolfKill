@@ -41,16 +41,17 @@ $(function(){
 
             // 成功后
             setTimeout(function() {
-                $('.waiting-info').text('找到房间!')
+                $('.waiting-info').text('房间创建成功')
                 $('.creat-page').fadeOut().removeClass('page-waiting')
                 setTimeout(function() {
                     $('.waiting-info').fadeOut()
                     setTimeout(function() {
                         setSeat(config.total)
+                        console.log(config.total);
                         $('.sitting').fadeIn(1000)
                         setTimeout(function() {
                             $('.seat').css('opacity', 1)
-                        }, 1000);                    
+                        }, 1000)
                     }, 500);
                 }, 500);
             }, 1000);

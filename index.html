@@ -33,14 +33,14 @@
         <div class="total-person">
             <div class="title">玩家总人数</div>
             <div class="controller clearFix">
-                <div class="curr-person">9</div>
+                <div class="curr-person">7</div>
                 <span class="decrease creat-btn">-</span>
                 <span class="increase creat-btn">+</span>
             </div>
         </div>
         <!-- 选择神民 -->
         <div class="choose-god">
-            <div class="title">选择神明：<span>3</span></div>
+            <div class="title">选择神明：<span>2</span></div>
             <div class="god-list">
                 <div class="god-item chosed">
                     <img src="./images/prophet.png" alt="预言家">
@@ -50,14 +50,14 @@
                     <img src="./images/witch.png" alt="女巫">
                     <span class="god-name">女巫</span>
                 </div>
-                <div class="god-item chosed">
+                <div class="god-item">
                     <img src="./images/hunter.png" alt="猎人">
                     <span class="god-name">猎人</span>
                 </div>
-                <div class="god-item">
+                <!--<div class="god-item">
                     <img src="./images/shield.png" alt="守卫">
                     <span class="god-name">守卫</span>
-                </div>
+                </div>-->
             </div>
         </div>
         <!-- 狼人和村民 -->
@@ -73,7 +73,7 @@
             <span class="line"></span>
             <div class="villager-num">
                 <span class="title">村民</span>
-                <div class="curr-num">3</div>
+                <div class="curr-num">2</div>
             </div>
         </div>
 
@@ -86,6 +86,25 @@
     <div class="sitting">
         <div class="sit-background"></div>
         <div class="table"></div>
+        <div class="chatPart">
+            <div class="user-chat-content">
+                <div class="user-chat-id">1号：</div>
+                <div class="user-chat-words">我是预言家，昨天晚上验的5号，五号是我的金水牌，警徽流先4后8</div>
+            </div>
+            <div class="user-chat-content">
+                <div class="user-chat-id">3号：</div>
+                <div class="user-chat-words">3号预言家，昨天查杀1号，五号是我警徽流第一张牌，今天全票出这个1号悍跳狼，警徽流先5后4，听后面发言，强势要警徽</div>
+            </div>
+            <div class="user-chat-content">
+                <div class="user-chat-id">4号：</div>
+                <div class="user-chat-words">莫名奇妙被放在的警徽流第一位，1号我不能上票给你你又不说心路历程，在我这里1号身份不做好，强神牌，可带队</div>
+            </div>
+        </div>
+        <div class="chatInputBox"></div>
+        <!-- 投票提示框 -->
+        <div class="voteTip">你的身份是：预言家</div>
+        <div class="vote-identity">请点击号数选择你要选择的对象</div>
+        <div class="game-start-btn">开始游戏</div>
     </div>
 
     <!-- 身份信息 -->
@@ -105,14 +124,66 @@
 
     <!-- 遮罩层 -->
     <div class="mask">
-
+        <span class="mask-words">游戏开始</span>
+        <!-- 游戏进度面板 -->
+        <div class="game-status-panel">
+            <div class="game-progress done">狼人密谋杀人</div>
+            <div class="game-progress">预言家悄悄验人</div>
+            <div class="game-progress">女巫考虑用药</div>
+            <div class="game-progress">猎人查看自身状态</div>
+            <div class="game-progress-tip">实心代表角色已完成对应操作</div>
+        </div>
     </div>
 
-    <script src="//libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="./js/index.js"></script>
     <script src="./js/home.js"></script>
     <script src="./js/join_room.js"></script>
     <script src="./js/sitting_room.js"></script>
     <script src="./js/creat_room.js"></script>
+    <script src="./js/start_game.js"></script>
+    <script>
+            $(function(){
+                // 投票界面
+                // voteView()
+
+                // 发言界面
+                // chatView()
+
+                function chatView(){
+                    $('.home').hide()
+                    $('.sitting').show()
+                    setSeat(7);
+                    $('.seat').css('opacity', 1).eq(1).addClass('sit-down')
+                    $('.table').css({
+                        'transform': 'translateY(-75%)',
+                    })
+                    $('.sit-background').css({
+                        'transform': 'translateY(-105%)',
+                    })
+                    $('.game-start-btn').hide()
+
+                    
+
+                    var chatPart = $('.chatPart')
+                    var chatInputBox = $('.chatInputBox')
+
+                    chatPart.show()
+                    chatInputBox.show()
+
+                }
+
+                function voteView(){
+                    $('.home').hide()
+                    $('.sitting').show()
+                    setSeat(7);
+                    $('.seat').css('opacity', 1).eq(1).addClass('sit-down')
+                    $('.game-start-btn').hide()
+
+                    $('.voteTip').show()
+                    $('.vote-identity').show()
+                }
+            })
+    </script>
 </body>
 </html>
